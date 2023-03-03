@@ -1,0 +1,41 @@
+/* START OF HOME PAGE STYLES */
+@media screen and (max-width:600px){
+  .container{
+    justify-content: center;
+  }
+}
+.main-card{  
+  min-height: 600px;
+  max-width: 700px; 
+  box-shadow:1px 1px 7px; 
+} 
+  
+  h2 {
+    margin-top: 50px;
+  }
+    
+  p {
+    margin: 0;
+  } 
+  .example-card{
+    max-width: 300px;
+    margin: 40px;
+    box-shadow:4px 3px 7px;
+  }
+  .cards{
+    width: 400px;
+  }
+  .dummy-card{
+    box-shadow:0px 0px 0px;
+  } 
+  .main-div{  
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sub-heading{ 
+    display: flex;
+    justify-content: center;
+    
+  }
