@@ -11,13 +11,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 }
-git status
+/* git status
 
 git commit -m new projects share
 
 git push 
 
 user
- password
+ password */
 
  

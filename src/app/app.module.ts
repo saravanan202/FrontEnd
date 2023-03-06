@@ -13,6 +13,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {MatMenuModule} from '@angular/material/menu'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
+import {MatButtonModule} from '@angular/material/button';
+import {NgbPaginationModule, NgbAlertModule} from'@ng-bootstrap/ng-bootstrap'
 
 const pages = [{
   path: '',
@@ -36,7 +38,10 @@ const pages = [{
     LayoutModule,
     MatMenuModule,
     MatIconModule,
-    MdbCollapseModule
+    MdbCollapseModule,
+    MatButtonModule,
+    NgbPaginationModule,
+    NgbAlertModule
   ],
 
   providers: [],
