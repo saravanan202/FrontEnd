@@ -1,36 +1,92 @@
 <div class="main-div">
   <mat-card class="dummy-card" style="justify-content:center;" layout-align="center center">
-    <mat-card class="main-card" style="margin:15px; min-height: 600px; max-height: 900px;">
+    <mat-card class="main-card" style="margin:15px; min-height: 600px;">
       <mat-card-content>
-        <p><strong>This is a short paragraph about me.</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Sunt
+        <div class="post-content">
+          <h2>{{projects[0].name}}</h2>
+        <p>
           ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
           vitae
-          voluptas fugiat eaque doloremque illo dolorum?<strong>This is a short paragraph about me.</strong> Lorem ipsum
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
           dolor sit amet consectetur adipisicing elit.
           Sunt
           ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
           vitae
-          voluptas fugiat eaque doloremque illo dolorum?<strong>This is a short paragraph about me.</strong> Lorem ipsum
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
           dolor sit amet consectetur adipisicing elit.
           Sunt
           ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
           vitae
-          voluptas fugiat eaque doloremque illo dolorum?<strong>This is a short paragraph about me.</strong> Lorem ipsum
+          voluptas fugiat eaque doloremque illo dolorum? This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum? This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum? This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum?This is a short paragraph about me. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit.
+          Sunt
+          ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
+          vitae
+          voluptas fugiat eaque doloremque illo dolorum? This is a short paragraph about me. Lorem ipsum
           dolor sit amet consectetur adipisicing elit.
           Sunt
           ducimus delectus blanditiis dolorum autem iusto, est doloremque in. Tenetur expedita deserunt id voluptate,
           vitae
           voluptas fugiat eaque doloremque illo dolorum?</p>
+          </div>
       </mat-card-content>
     </mat-card>
   </mat-card>
 </div>
 <div class="sub-heading" style=" justify-content:center;">
-  <h3>Related Articles</h3>
+  <h3>Latest Articles</h3>
 </div>
 <div class="container">
-  <mat-card class="dummy-card" fxLayout="row wrap" style="flex-flow: wrap; display:flex;justify-content:center;">
+  <mat-card class="card" fxLayout="row wrap" style="flex-flow: wrap; display:flex;justify-content:center;">
     <mat-card fxLayout="row" class="example-card" *ngFor="let project of projects"
       style="margin:15px; min-height: 200px; max-height: 200px;">
       <mat-card-header>

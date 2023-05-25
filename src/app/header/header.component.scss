@@ -1,0 +1,10 @@
+  .header {
+    padding-bottom: 10px;
+    background-color: rgb(10, 1, 51);
+  }
+
+  .mat-toolbar {
+    display: grid;
+    position: fixed;
+    z-index: 10;
+  }
