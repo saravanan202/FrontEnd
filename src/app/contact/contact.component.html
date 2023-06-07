@@ -1,0 +1,25 @@
+<section class="contact-section" [@fadeIn]>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p><b>Have any questions or want to get in touch? Fill out the form below, and we'll get back to you as soon as possible.</b></p>
+    
+    <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" required></textarea>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
+    </form>
+  </div>
+</section>

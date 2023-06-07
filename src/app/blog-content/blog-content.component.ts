@@ -1,11 +1,20 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
+import { trigger, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-blog-content',
   templateUrl: './blog-content.component.html',
-  styleUrls: ['./blog-content.component.scss']
+  styleUrls: ['./blog-content.component.scss'],
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms ease-in', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class BlogContentComponent implements OnInit {
 

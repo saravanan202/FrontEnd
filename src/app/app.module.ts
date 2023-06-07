@@ -14,7 +14,16 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import {MatButtonModule} from '@angular/material/button';
-import {NgbPaginationModule, NgbAlertModule} from'@ng-bootstrap/ng-bootstrap'
+import {NgbPaginationModule, NgbAlertModule} from'@ng-bootstrap/ng-bootstrap';
+import { ContactComponent } from './contact/contact.component';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { HomeContentComponent } from './home-content/home-content.component';
 
 const pages = [{
   path: '',
@@ -27,6 +36,8 @@ const pages = [{
     BlogContentComponent,
     HeaderComponent,
     FooterComponent,
+    ContactComponent,
+    HomeContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +52,15 @@ const pages = [{
     MdbCollapseModule,
     MatButtonModule,
     NgbPaginationModule,
-    NgbAlertModule
+    NgbAlertModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatListModule,
   ],
 
   providers: [],

@@ -1,13 +1,16 @@
 <header class="header">
-  <mat-toolbar style="background-color: rgb(10, 1, 51);">
-    <h2 align="center" style="margin-top:5px; color: rgb(243, 243, 243);">Techies</h2>
-  <mat-toolbar-row align="center" style="display:grid">
-      <div class="example-button-row" style="color: aliceblue;" align="center"> 
-          <button style="font-size: 20px;" mat-button >Blog</button>
-          <button style="font-size: 20px;" mat-button >Shop</button>
-          <button style="font-size: 20px;" mat-button >Tibs</button>
-          <button style="font-size: 20px;" mat-button >Contact</button>
+  <mat-toolbar style="background-color: rgb(29, 0, 158);">
+    <div fxLayout="row" fxLayoutAlign="space-between center" >
+      <div fxLayout="row"  >
+        <h2 style="margin-top: 5px; color: rgb(243, 243, 243);">SunTechie</h2>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" style="color: aliceblue; gap: 20px;">
+        <button style="font-size: 15px;" mat-button routerLink="/home">Home</button>
+        <button style="font-size: 15px;" mat-button routerLink="/blog">Blog</button>
+<!--         <button style="font-size: 15px;" mat-button>Shop</button>
+        <button style="font-size: 15px;" mat-button>Tibs</button> -->
+        <button style="font-size: 15px;" mat-button routerLink="/contact">Contact</button>
+      </div>
     </div>
-  </mat-toolbar-row>
   </mat-toolbar>
 </header>
