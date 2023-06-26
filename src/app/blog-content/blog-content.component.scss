@@ -1,39 +1,39 @@
-/* START OF HOME PAGE STYLES */
 @media screen and (max-width:600px){
   .container{
     justify-content: center;
+    max-height: 100%;
   }
 }
-.main-card{  
-  min-height: 600px;
-  max-width: 750px; 
- // box-shadow:1px 1px 7px; 
+.blog-1div{
+  min-height: 130px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 10px;
+  flex-direction: column; 
+  background-image: url('/assets/images/blog.jpg');
+}
+.title-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heading-h{
+  letter-spacing: .01em;
+  line-height: 160%;
+  font-size: 1.75rem;
+  font-weight: 500;
+  opacity:0.8;
+}
+.example-card {
+  max-width: 350px;
+  border-radius: 3%;
+  margin: 25px;
+  display: flex-flow;
 } 
-  p {
-    margin: 0;
-  } 
-  .example-card{
-    max-width: 300px;
-    margin: 40px;
-    box-shadow:4px 3px 7px;
-  }
-  .cards{
-    width: 400px;
-  }
-  .dummy-card{
-    box-shadow:0px 0px 0px;
-    margin-top: 120px;
-  } 
-  .main-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .sub-heading{ 
-    display: flex;
-    justify-content: center;
-    
-  }
-  .card{
-    box-shadow:0px 0px 0px;
-  }
+.post-content{
+  margin: 8px;
+  margin-right:1px;
+  line-height: 28px;
+  text-align: justify;
+  font-weight: 400;
+}

@@ -1,6 +1,7 @@
 .contact-section {
   padding: 40px 0;
   margin-top: 90px;
+  margin: 25px;
 }
 
 .container {
@@ -26,4 +27,12 @@ mat-form-field {
 
 button {
   margin-top: 20px;
+}
+.heading-h{
+  letter-spacing: .01em;
+  line-height: 100%;
+  font-size: 1.75rem;
+  font-weight: 700;
+  opacity:0.9;
+  text-align: justify;
 }

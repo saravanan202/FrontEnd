@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-content',
@@ -14,6 +14,13 @@ import { Component } from '@angular/core';
     ])
   ]
 })
-export class HomeContentComponent {
+export class HomeContentComponent implements OnInit{
+ 
+  isSubscribed:boolean=true;
 
+  ngOnInit(): void {
+  }
+  onSubmit(){
+   this.isSubscribed=false;
+  }
 }

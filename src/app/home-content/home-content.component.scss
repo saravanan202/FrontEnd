@@ -1,54 +1,127 @@
+
+.image-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
 .hero {
-    margin-top: 100px;
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    display: flex; 
-    justify-content: center;
-    text-align: center;
+  position: relative;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/assets/images/computer.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  animation: fadeInUp 2s ease-out;
+}
+
+.hero-content {
+  color: #010107;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.featured {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h2 {
+  text-align: center;
+  letter-spacing: .01em;
+  line-height: 160%;
+  font-size: 1.75rem;
+  font-weight: 500;
+  opacity:0.8;
+}
+
+.article-card {
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.article-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.categories {
+  padding: 50px 0;
+  background-color: #e8e8e8;
+}
+
+.category-card {
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.recent-news {
+  padding: 50px 0;
+  background-color: #f4f4f4;
+}
+
+.news-item {
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.newsletter {
+  padding: 50px 0;
+  background-color: #e8e8e8;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff5500;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .hero-content {
-    color: #03002b;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .hero-content h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
-  
-  .hero-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #ff6600;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cta-button:hover {
-    background-color: #e55d00;
-  }
-  .featured-posts {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .featured-posts h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .card-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
+}

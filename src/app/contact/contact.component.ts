@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { HomeApiService } from '../home-api.service';
 
 @Component({
   selector: 'app-contact',
@@ -16,24 +17,24 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ]
 })
 export class ContactComponent implements OnInit {
-  contactForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder) { }
+  formData: any = {};
+  thankYou: boolean = true;
+  constructor(private formBuilder: FormBuilder, private homeApiService: HomeApiService) { }
 
   ngOnInit() {
-    this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
-    });
   }
 
   submitForm() {
-    if (this.contactForm.invalid) {
-      return;
-    }
-
-    // Here, you can add the code to handle form submission, such as sending the data to a server or displaying a success message.
-    console.log(this.contactForm.value);
+    this.homeApiService.sendEmail(this.formData.name, this.formData.email, this.formData.message)
+      .then(response => {
+        console.log('Email sent successfully!', response);
+        this.thankYou = false;
+        this.formData={};
+        // Display success message or perform any desired action
+      })
+      .catch(error => {
+        console.error('Error sending email:', error);
+        // Display error message or perform any desired action
+      });
   }
 }

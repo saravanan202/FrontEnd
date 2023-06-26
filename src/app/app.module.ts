@@ -24,6 +24,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeContentComponent } from './home-content/home-content.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {HashLocationStrategy,LocationStrategy} from'@angular/common'
+
 
 const pages = [{
   path: '',
@@ -61,9 +65,11 @@ const pages = [{
     FlexLayoutModule,
     MatSidenavModule,
     MatListModule,
+    MatGridListModule,
+    MatPaginatorModule,
   ],
 
-  providers: [],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,32 +1,74 @@
-<section class="hero" [@fadeIn] style="background-image: url('/src/assets/computer.jpg');">
-    <div class="hero-content">
-      <h1>Welcome to Suntechie</h1>
-      <p>Exploring the latest in technology and innovation</p>
-      <!-- <a href="#" class="cta-button">Get Started</a> -->
-    </div>
-  </section>
+<section class="hero" [@fadeIn] >
+  <img src="/assets/images/computer.jpg" alt="Image"  class="image-responsive">
+  <div class="hero-content">
+    <h1>Welcome to Suntechie</h1>
+    <p>Exploring the latest in technology and innovation</p>
+    <!-- <a href="#" class="cta-button">Get Started</a> -->
+  </div>
+</section>
 
-  <section class="featured-posts">
-    <h2>Featured Posts</h2>
-    <div class="card-container">
-      <mat-card class="post">
-        <img mat-card-image src="/src/assets/computer.jpg" alt="Post 1">
-        <mat-card-content>
-          <h2 mat-card-title>Article Title</h2>
-          <p mat-card-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p mat-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies felis vel ultrices varius.</p>
-          <a href="#" mat-button>Read More</a>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="post">
-        <img mat-card-image src="post2.jpg" alt="Post 2">
-        <mat-card-content>
-          <h2 mat-card-title>Article Title</h2>
-          <p mat-card-subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          <p mat-card-content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies felis vel ultrices varius.</p>
-          <a href="#" mat-button>Read More</a>
-        </mat-card-content>
-      </mat-card>
-      <!-- Add more card elements as needed -->
+<section class="featured">
+  <div class="container">
+    <h2>Featured Articles</h2>
+    <div class="article-card">
+      <img src="/assets/images/article1.jpg" alt="Article 1">
+      <h3>Article Title 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <a href="#">Read More</a>
     </div>
-  </section>
+    <div class="article-card">
+      <img src="/assets/images/article2.jpg" alt="Article 2">
+      <h3>Article Title 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <a href="#">Read More</a>
+    </div>
+    <!-- Add more article cards as needed -->
+  </div>
+</section>
+
+<section class="categories">
+  <div class="container">
+    <h2>Explore Categories</h2>
+    <div class="category-card">
+      <img src="/assets/images/ai.jpg" alt="Artificial Intelligence">
+      <h3>Artificial Intelligence</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <a href="#">Explore</a>
+    </div>
+    <div class="category-card">
+      <img src="/assets/images/iot.jpg" alt="Internet of Things">
+      <h3>Internet of Things</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <a href="#">Explore</a>
+    </div>
+    <!-- Add more category cards as needed -->
+  </div>
+</section>
+
+<section class="recent-news">
+  <div class="container">
+    <h2>Recent News</h2>
+    <div class="news-item">
+      <h3>News Headline 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <span class="publication-date">June 20, 2023</span>
+    </div>
+    <div class="news-item">
+      <h3>News Headline 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
+      <span class="publication-date">June 18, 2023</span>
+    </div>
+    <!-- Add more news items as needed -->
+  </div>
+</section>
+
+<section class="newsletter" *ngIf="isSubscribed">
+  <div class="container">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p fxLayoutAlign="center center">Stay updated with the latest technology news and innovations.</p>
+    <form (onsubmit)="onSubmit()">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>

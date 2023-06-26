@@ -1,25 +1,25 @@
 <section class="contact-section" [@fadeIn]>
-  <div class="container">
+  <div class="container heading-h">
     <h2>Contact Us</h2>
-    <p><b>Have any questions or want to get in touch? Fill out the form below, and we'll get back to you as soon as possible.</b></p>
+    <p style="opacity:0.8;">Have any questions or want to get in touch? Fill out the form below, and we'll get back to you as soon as possible.</p>
     
-    <form (ngSubmit)="submitForm()" [formGroup]="contactForm">
+    <form (ngSubmit)="submitForm()" #myForm="ngForm">
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" required>
+        <input matInput [(ngModel)]="formData.name" name="name" required>
       </mat-form-field>
       
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" required>
+        <input matInput [(ngModel)]="formData.email" name="email" required>
       </mat-form-field>
       
       <mat-form-field appearance="fill">
         <mat-label>Message</mat-label>
-        <textarea matInput formControlName="message" required></textarea>
+        <textarea matInput [(ngModel)]="formData.message" name="message" required></textarea>
       </mat-form-field>
-      
-      <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
+      <span style="color: green;" *ngIf="!thankYou">Hello Techies,<br>Message Recieved.. we'll get back to you ASAP</span><br>
+      <button mat-raised-button color="primary" type="submit" [disabled]="myForm.invalid">Submit</button>
     </form>
-  </div>
+  </div> 
 </section>

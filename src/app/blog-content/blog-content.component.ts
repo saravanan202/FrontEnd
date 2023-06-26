@@ -17,31 +17,75 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ]
 })
 export class BlogContentComponent implements OnInit {
-
-  projects = [{
-    name: 'Project One',
-    description: 'This is the description for the first project.'
+  blogPost = [{
+    blogId: 1,
+    name: 'Project One description for the',
+    description: 'This is the description for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first project.'
   }, {
-    name: 'Project Two',
+    blogId: 2,
+    name: 'Project Two description for the',
+    description: 'This is the descion for the first projection for the first projection for the first projection for the first projectription for the second project.'
+  }, {
+    blogId: 3,
+    name: 'Project Thre description for thee',
+    description: 'Description for third pion for the first projection for the first projection for the first projection for the first projectroject.'
+  }, {
+    blogId: 3,
+    name: 'Project Tw description for theo',
     description: 'This is the description for the second project.'
   }, {
-    name: 'Project Three',
-    description: 'Description for third project.'
+    name: 'Project T description for thewo',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Project description for the Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Projec description for thet Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
+  }, {
+    name: 'Proje description for thect Two',
+    description: 'This is the description for the second project.'
   }];
+  isBlogContent: boolean = false;
+  blogContent:any;
+  blogTitle:any; 
 
-  Breakpoints = Breakpoints;
-  currentBreakpoint:string = '';
-  
-  readonly breakpoint$ = this.breakpointObserver
-    .observe([Breakpoints.Large, Breakpoints.Medium, Breakpoints.Small, '(min-width: 500px)'])
-    .pipe(
-      tap(value => console.log(value)),
-      distinctUntilChanged()
-    );
-    
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor() { }
 
 
   ngOnInit() {
+  }
+  onSelect(id: any, back: boolean) {
+    if (id > 0) {
+      this.isBlogContent = true;
+      this.blogContent=this.blogPost.find(f=>f.blogId==id)?.description;
+      this.blogTitle=this.blogPost.find(f=>f.blogId==id)?.name;
+    } else {
+      this.isBlogContent = false;
+    }
   }
 }
