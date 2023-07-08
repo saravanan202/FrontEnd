@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeApiService } from './home-api.service';
-import { MainClassFile } from './main-class-file';
+import { blogPostVm } from './main-class-file';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { MainClassFile } from './main-class-file';
 })
 export class AppComponent {
   title = 'Project1';
-  main:MainClassFile=new MainClassFile();
+  main:blogPostVm=new blogPostVm();
 
   constructor(private apiService:HomeApiService){}
 
@@ -18,9 +18,9 @@ ngOnInit(){
 }
 
   getFirstmethod() {
-    this.apiService.getmethod().subscribe(res => {
+ /*    this.apiService.getmethod().subscribe(res => {
       this.main = res;
 
-    });
+    }); */
   }
 }

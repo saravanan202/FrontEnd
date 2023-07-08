@@ -2,6 +2,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { HomeApiService } from '../home-api.service';
+import { blogPostVm } from '../main-class-file';
 
 @Component({
   selector: 'app-blog-content',
@@ -17,73 +19,25 @@ import { trigger, style, animate, transition } from '@angular/animations';
   ]
 })
 export class BlogContentComponent implements OnInit {
-  blogPost = [{
-    blogId: 1,
-    name: 'Project One description for the',
-    description: 'This is the description for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first projection for the first project.'
-  }, {
-    blogId: 2,
-    name: 'Project Two description for the',
-    description: 'This is the descion for the first projection for the first projection for the first projection for the first projectription for the second project.'
-  }, {
-    blogId: 3,
-    name: 'Project Thre description for thee',
-    description: 'Description for third pion for the first projection for the first projection for the first projection for the first projectroject.'
-  }, {
-    blogId: 3,
-    name: 'Project Tw description for theo',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Project T description for thewo',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Project description for the Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Projec description for thet Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }, {
-    name: 'Proje description for thect Two',
-    description: 'This is the description for the second project.'
-  }];
+  blogPost: blogPostVm = new blogPostVm();
+  blogPosts: blogPostVm[] = new Array<blogPostVm>();
   isBlogContent: boolean = false;
-  blogContent:any;
-  blogTitle:any; 
-
-  constructor() { }
+  blogContent: any;
+  blogTitle: any;
+  blogId: number;
+  constructor(public service: HomeApiService) { }
 
 
   ngOnInit() {
+    this.service.getmethod().subscribe((res) => {
+      this.blogPosts = res;
+    });
   }
   onSelect(id: any, back: boolean) {
     if (id > 0) {
       this.isBlogContent = true;
-      this.blogContent=this.blogPost.find(f=>f.blogId==id)?.description;
-      this.blogTitle=this.blogPost.find(f=>f.blogId==id)?.name;
+      this.blogContent = this.blogPosts.find(f=>f.blogId == id)?.blogContent;
+      this.blogTitle = this.blogPosts.find(f=>f.blogId == id) ?.blogTitle;
     } else {
       this.isBlogContent = false;
     }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { MainClassFile } from './main-class-file';
+import { blogPostVm } from './main-class-file';
 import { Observable } from 'rxjs/internal/Observable';
-import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { EmailJSResponseStatus } from 'emailjs-com';
+import * as emailjs from 'emailjs-com';
 
 
 @Injectable({
@@ -17,9 +18,9 @@ export class HomeApiService {
     emailjs.init(this.userId);
   }
 
-  getmethod(): Observable<MainClassFile> {
-    let url = `https://jsonplaceholder.typicode.com/todos/1`;
-    return this.httpClient.get<MainClassFile>(url);
+  getmethod( ): Observable<blogPostVm[]> {
+    let url = `http://localhost:40689/Blog/GetPost`;
+    return this.httpClient.get<blogPostVm[]>(url);
   }
   sendEmail(name: string, email: string, message: string): Promise<EmailJSResponseStatus> {
     const emailParams = {

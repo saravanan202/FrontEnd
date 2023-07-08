@@ -4,14 +4,11 @@
   </div>
   <mat-card class="card" fxLayout="row wrap"
     style="flex-flow: wrap; display:flex;justify-content:center; box-shadow: none; ">
-    <mat-card class="example-card" (click)="onSelect(blog.blogId,true)" *ngFor="let blog of blogPost">
+    <mat-card class="example-card" (click)="onSelect(blog.blogId,true)" *ngFor="let blog of blogPosts">
       <img mat-card-image style="max-height:200px; max-width: 350px;"
         src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
       <mat-card-content>
-        <mat-card-title style="opacity: 0.8;">{{blog.name}}</mat-card-title>
-        <!--  <p>
-          {{blog.description}}
-        </p> -->
+        <mat-card-title style="opacity: 0.8;">{{blog.blogTitle}}</mat-card-title>
       </mat-card-content>
     </mat-card>
   </mat-card>
@@ -34,11 +31,11 @@
     </mat-card>
     <mat-card style="justify-content:center; box-shadow: none;">
       <h2 class="heading-h" style="margin: 25px;margin-bottom: 0px;  font-size: 1.25rem;">Recent Article</h2>
-      <mat-card class="example-card"style="max-width:400px;" (click)="onSelect(blog.blogId,true)" *ngFor="let blog of blogPost">
+      <mat-card class="example-card"(click)="onSelect(blog.blogId,true)" *ngFor="let blog of blogPosts">
         <img mat-card-image style="max-height:150px; max-width: 400px;"
           src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <mat-card-content>
-          <mat-card-title style="opacity: 0.8;">{{blog.name}}</mat-card-title>
+          <mat-card-title style="opacity: 0.8;">{{blog.blogTitle}}</mat-card-title>
         </mat-card-content>
       </mat-card>
     </mat-card>
