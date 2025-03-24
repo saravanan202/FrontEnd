@@ -1,0 +1,118 @@
+<div class="container">
+  <h2>Employee Payment Form</h2>
+  
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" formControlName="name" required>
+    </div>
+
+    <div class="form-group">
+      <label>Staff ID (Optional):</label>
+      <input type="text" formControlName="staffID">
+    </div>
+
+    <div class="form-group">
+      <label>Department:</label>
+      <select formControlName="department" required>
+        <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Payment Date:</label>
+      <input type="date" formControlName="paymentDate" required>
+    </div>
+
+    <div class="form-group">
+      <label>Basic Pay:</label>
+      <input type="number" formControlName="basicPay" required>
+    </div>
+
+    <div class="form-group">
+      <label>HRA:</label>
+      <input type="number" formControlName="hra" required>
+    </div>
+
+    <div class="form-group">
+      <label>Others:</label>
+      <input type="number" formControlName="others" required>
+    </div>
+
+    <button type="submit" [disabled]="employeeForm.invalid">Submit</button>
+  </form>
+</div>
+<mat-table [dataSource]="employeeData" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+    </ng-container>
+  
+    <!-- Staff ID Column -->
+    <ng-container matColumnDef="staffID">
+      <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+      <td mat-cell *matCellDef="let element"> {{ element.staffID }} </td>
+    </ng-container>
+  
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let element"> {{ element.department }} </td>
+    </ng-container>
+  
+    <!-- Payment Date Column -->
+    <ng-container matColumnDef="paymentDate">
+      <th mat-header-cell *matHeaderCellDef> Payment Date </th>
+      <td mat-cell *matCellDef="let element"> {{ element.paymentDate | date }} </td>
+    </ng-container>
+  
+    <!-- Basic Pay Column -->
+    <ng-container matColumnDef="basicPay">
+      <th mat-header-cell *matHeaderCellDef> Basic Pay </th>
+      <td mat-cell *matCellDef="let element"> {{ element.basicPay }} </td>
+    </ng-container>
+  
+    <!-- HRA Column -->
+    <ng-container matColumnDef="hra">
+      <th mat-header-cell *matHeaderCellDef> HRA </th>
+      <td mat-cell *matCellDef="let element"> {{ element.hra }} </td>
+    </ng-container>
+  
+    <!-- Others Column -->
+    <ng-container matColumnDef="others">
+      <th mat-header-cell *matHeaderCellDef> Others </th>
+      <td mat-cell *matCellDef="let element"> {{ element.others }} </td>
+    </ng-container>
+  
+    <!-- Total Earnings Column -->
+    <ng-container matColumnDef="totalEarnings">
+      <th mat-header-cell *matHeaderCellDef> Total Earnings </th>
+      <td mat-cell *matCellDef="let element"> {{ element.totalEarnings }} </td>
+    </ng-container>
+  
+    <!-- Tax Pay Column -->
+    <ng-container matColumnDef="taxPay">
+      <th mat-header-cell *matHeaderCellDef> Tax Pay </th>
+      <td mat-cell *matCellDef="let element"> {{ element.taxPay }} </td>
+    </ng-container>
+  
+    <!-- Net Pay Column -->
+    <ng-container matColumnDef="netPay">
+      <th mat-header-cell *matHeaderCellDef> Net Pay </th>
+      <td mat-cell *matCellDef="let element"> {{ element.netPay }} </td>
+    </ng-container>
+  
+    <!-- Delete Button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button color="warn" (click)="deleteEmployee(element.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
+  
