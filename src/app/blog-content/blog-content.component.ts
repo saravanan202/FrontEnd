@@ -1,9 +1,11 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { distinctUntilChanged, tap } from 'rxjs/operators';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { HomeApiService } from '../home-api.service';
 import { blogPostVm } from '../main-class-file';
+import { DomSanitizer, SafeResourceUrl, SafeUrl  } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blog-content',
@@ -18,28 +20,53 @@ import { blogPostVm } from '../main-class-file';
     ])
   ]
 })
-export class BlogContentComponent implements OnInit {
-  blogPost: blogPostVm = new blogPostVm();
+export class BlogContentComponent implements OnInit  {
+  blogPost: blogPostVm | undefined = new blogPostVm();
   blogPosts: blogPostVm[] = new Array<blogPostVm>();
   isBlogContent: boolean = false;
   blogContent: any;
   blogTitle: any;
   blogId: number;
-  constructor(public service: HomeApiService) { }
+  temp:any;
+  blogSlug: string;
+
+  constructor(public service: HomeApiService, 
+    private router: Router, private sanitizer: DomSanitizer, 
+    private renderer: Renderer2) { }
 
 
   ngOnInit() {
+    if(this.service.blogPosts.length){
+      this.blogPosts = this.service.blogPosts;
+    }else{
     this.service.getmethod().subscribe((res) => {
       this.blogPosts = res;
     });
   }
-  onSelect(id: any, back: boolean) {
-    if (id > 0) {
-      this.isBlogContent = true;
-      this.blogContent = this.blogPosts.find(f=>f.blogId == id)?.blogContent;
-      this.blogTitle = this.blogPosts.find(f=>f.blogId == id) ?.blogTitle;
-    } else {
-      this.isBlogContent = false;
+  }
+  getUrl(imageUrl: any)   {
+    if(imageUrl){
+    return imageUrl.replace("http://localhost:4200/", "");
     }
   }
+  onSelect(id: any, back: boolean) {
+    if (id > 0) {
+      window.scrollTo(0, 0);
+      this.blogPost = this.blogPosts.find(f=>f.blogId == id);
+      this.blogTitle = this.blogPosts.find(f=>f.blogId == id) ?.blogTitle;
+      this.service.blogPost=this.blogPost;
+      this.service.blogPosts=this.blogPosts;
+      this.blogSlug = this.service.generateSlug(this.blogTitle);
+      this.onViewBlog(this.blogSlug); 
+     // this.isBlogContent = true;
+    } else {
+      this.blogSlug="";
+      this.onViewBlog(this.blogSlug); 
+     // this.isBlogContent = false;
+    }
+  }
+  onViewBlog(blogSlug: string) {
+    this.router.navigate(['blog/blogpost', blogSlug]);
+  }
+
 }

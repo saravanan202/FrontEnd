@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { BlogContentComponent } from './blog-content/blog-content.component';
 import { HomeContentComponent } from './home-content/home-content.component';
+import { BlogPostComponent } from './blog-content/blog-post/blog-post.component';
+import { EmployeeSPComponent } from './employee-sp/employee-sp.component';
 
 const routes: Routes = [
   // Other routes if any
@@ -12,9 +14,13 @@ const routes: Routes = [
 
   { path: 'blog', component: BlogContentComponent },
 
-  { path: 'contact', component: ContactComponent },
+  { path: 'blog/blogpost/:slug', component: BlogPostComponent },
 
-  // Other routes if any
+  { path: 'empSp', component: EmployeeSPComponent },
+
+
+  /* 
+  { path: '', redirectTo:'blog/blogpost/:slug',pathMatch: 'full' }, */
 ];
 
 @NgModule({

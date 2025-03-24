@@ -1,0 +1,29 @@
+@media screen and (max-width:500px){
+    .container{
+      justify-content: center;
+      min-height: 500px;
+    }
+  }
+  
+  .example-card {
+    max-width: 300px;
+    border-radius: 3%;
+    margin: 25px;
+    display: flex-flow;
+  }
+  .example-card:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+  .heading-h{
+    letter-spacing: .01em;
+    line-height: 160%;
+    font-size: 1.75rem;
+    font-weight: 500;
+    opacity:0.8;
+  }
+p {
+    white-space: pre-line;
+    line-height: 2.5; 
+    opacity:0.8;
+  }

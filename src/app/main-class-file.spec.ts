@@ -1,7 +1,7 @@
-import { MainClassFile } from './main-class-file';
+import { blogPostVm } from './main-class-file';
 
 describe('MainClassFile', () => {
   it('should create an instance', () => {
-    expect(new MainClassFile()).toBeTruthy();
+    expect(new blogPostVm()).toBeTruthy();
   });
 });

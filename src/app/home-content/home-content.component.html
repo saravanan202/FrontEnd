@@ -1,5 +1,5 @@
 <section class="hero" [@fadeIn] >
-  <img src="/assets/images/computer.jpg" alt="Image"  class="image-responsive">
+ <!--  <img src="/assets/images/computer.jpg" alt="Image"  class="image-responsive"> -->
   <div class="hero-content">
     <h1>Welcome to Suntechie</h1>
     <p>Exploring the latest in technology and innovation</p>
@@ -7,25 +7,25 @@
   </div>
 </section>
 
-<section class="featured">
+<div class="featured">
   <div class="container">
     <h2>Featured Articles</h2>
-    <div class="article-card">
-      <img src="/assets/images/article1.jpg" alt="Article 1">
-      <h3>Article Title 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
-      <a>Read More</a>
+    <div class="article-card" (click)="onSelect(featurePost1?.blogId)">
+      <img [src]="getUrl(featurePost1?.titleImage)" alt="v">
+      <h3>{{featurePost1?.blogTitle}}</h3>
+      <p>I have been using the Vivo T2 5G for the past four months, and I have mixed feelings about it.
+        On the one hand, it has some great features, such as a bright AMOLED display, a long-lasting battery,
+        and fast..etc</p>
+      <a style="text-decoration: none;">Read More</a>
     </div>
-    <div class="article-card">
-      <img src="/assets/images/article2.jpg" alt="Article 2">
-      <h3>Article Title 2</h3>
+    <div class="article-card" (click)="onSelect(featurePost2?.blogId)">
+      <img src="/assets/images/ai.jpg" alt="v">
+      <h3>{{featurePost2?.blogTitle}}</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
-      <a >Read More</a>
+      <a style="text-decoration: none;">Read More</a>
     </div>
-    <!-- Add more article cards as needed -->
   </div>
-</section>
-
+  </div>
 <section class="categories">
   <div class="container">
     <h2>Explore Categories</h2>
@@ -41,34 +41,40 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
       <a >Explore</a>
     </div>
-    <!-- Add more category cards as needed -->
   </div>
 </section>
 
 <section class="recent-news">
-  <div class="container">
-    <h2>Recent News</h2>
-    <div class="news-item">
-      <h3>News Headline 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
-      <span class="publication-date">June 20, 2023</span>
-    </div>
-    <div class="news-item">
-      <h3>News Headline 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor mauris quis aliquet auctor.</p>
-      <span class="publication-date">June 18, 2023</span>
-    </div>
-    <!-- Add more news items as needed -->
+  <h2>Recent News</h2>
+  <div class="card-container">
+    <mat-card class="example-card" (click)="onSelect(news.blogId)" routerLink="/blog"*ngFor="let news of recentNews">
+      <div class="news-item">
+        <p><b>{{news?.blogTitle}}</b></p>
+        <span class="publication-date">June 20, 2023</span>
+      </div>
+    </mat-card>
   </div>
 </section>
 
-<section class="newsletter" *ngIf="isSubscribed">
+<section class="newsletter">
   <div class="container">
     <h2>Subscribe to Our Newsletter</h2>
     <p fxLayoutAlign="center center">Stay updated with the latest technology news and innovations.</p>
-    <form (onsubmit)="onSubmit()">
-      <input type="email" placeholder="Enter your email address" required>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+      <input type="email" id="email" [(ngModel)]="subscriber.email" name="email" placeholder="Enter your email address" email required>
       <button type="submit">Subscribe</button>
     </form>
+    <div  style="text-align: center;color: rgb(6, 133, 31);margin-top: 10px;">
+    <span  *ngIf="isSubscribed">You Are Subscribed</span>
+    <span  *ngIf="isSubscribedExist && myForm.valid">You Are Already Subscribed</span>
+    <div *ngIf="myForm.submitted && myForm.controls['email'].errors">
+      <div *ngIf="myForm.controls['email'].errors['required']">
+        Email is required.
+      </div>
+      <div *ngIf="myForm.controls['email'].errors['email']">
+        Please enter a valid email address.
+      </div>
+    </div>
+  </div>
   </div>
 </section>

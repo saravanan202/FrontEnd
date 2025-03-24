@@ -1,13 +1,14 @@
 
-.image-responsive {
+/* .image-responsive {
   max-width: 100%;
   height: auto;
-}
+} */
 
 .hero {
   position: relative;
   text-align: center;
-  min-height: 100vh;
+  min-height: 75vh;
+  max-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +16,7 @@
   background-size: cover;
   background-position: center;
   color: #fff;
-  animation: fadeInUp 2s ease-out;
+  animation: fadeInUp 1s ease-out;
 }
 
 .hero-content {
@@ -33,7 +34,7 @@
 }
 
 .container {
-  max-width: 100%;
+  max-width: 75%;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -53,12 +54,14 @@ h2 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   animation: fadeInUp 1s ease-out;
+  cursor: pointer;
 }
 
 .article-card img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  max-height: 200px;
+  margin-bottom: 10px; 
+  border-radius: 1%;
+  max-width:200px;
 }
 
 .categories {
@@ -72,12 +75,16 @@ h2 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
-
+.category-card img {
+  max-height: 200px;
+  margin-bottom: 10px; 
+  border-radius: 1%;
+  max-width:200px;
+}
 .recent-news {
   padding: 50px 0;
   background-color: #f4f4f4;
 }
-
 .news-item {
   margin-bottom: 30px;
   background-color: #fff;
@@ -86,7 +93,7 @@ h2 {
 }
 
 .newsletter {
-  padding: 50px 0;
+  padding:50px 0;
   background-color: #e8e8e8;
 }
 
@@ -101,6 +108,7 @@ input[type="email"] {
   padding: 10px;
   border: none;
   border-radius: 5px 0 0 5px;
+  max-width: 40%;
 }
 
 button {
@@ -125,3 +133,39 @@ button:hover {
     transform: translateY(0);
   }
 }
+.example-card:hover {
+   color: #5d5d5d;
+  transition: background-color 0.3s ease;
+}
+.news-item{
+  opacity:0.7;
+} 
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0  ; /* Add negative margin to compensate for the margin in cards */
+}
+
+.example-card {
+  width: calc(33.33% - 20px); /* Adjust the width as needed */
+  margin: 10px;
+  cursor: pointer; /* Add margin between cards */
+  /* Other card styles */
+}
+
+/* Add a media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .example-card {
+    width: calc(50% - 20px); /* Adjust the width for smaller screens */
+  }
+}
+
+/* Add another media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  .example-card {
+    width: 70%; /* Cards take full width on smaller screens */
+  }
+}
+

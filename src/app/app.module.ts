@@ -26,12 +26,20 @@ import { MatListModule } from '@angular/material/list';
 import { HomeContentComponent } from './home-content/home-content.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {HashLocationStrategy,LocationStrategy} from'@angular/common'
+import { BlogPostComponent } from './blog-content/blog-post/blog-post.component';
+import { EmployeeSPComponent } from './employee-sp/employee-sp.component';
+import { MatTableModule } from '@angular/material/table'; // Add this import
+import { MatNativeDateModule, MatOptionModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+//import {HashLocationStrategy,LocationStrategy} from'@angular/common'
 
 
-const pages = [{
+let pages = [{
   path: '',
-  component: BlogContentComponent
+  component: HomeContentComponent,
+  EmployeeSpComponent: EmployeeSPComponent
 }];
 
 @NgModule({
@@ -42,6 +50,8 @@ const pages = [{
     FooterComponent,
     ContactComponent,
     HomeContentComponent,
+    BlogPostComponent,
+    EmployeeSPComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,9 +77,13 @@ const pages = [{
     MatListModule,
     MatGridListModule,
     MatPaginatorModule,
+    MatTableModule,
+    MatOptionModule, 
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule
   ],
-
-  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
+  //{provide:LocationStrategy,useClass:HashLocationStrategy} 
   bootstrap: [AppComponent]
 })
 export class AppModule {
