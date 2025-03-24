@@ -14,7 +14,7 @@ export class HomeApiService {
   private serviceId = 'service_s5ekctv';
   private templateId = 'template_6ivsyps';
   private userId = 'O42Pe4ftmfCQCYI_u';
-  private apiUrl=`https://localhost:44377 /` 
+  private apiUrl=`https://localhost:44377/` 
   //private apiUrl=`https://suntechie.com/`
  componentSource=new Subject<string[]>();
  blogPost: blogPostVm | undefined = new blogPostVm();
